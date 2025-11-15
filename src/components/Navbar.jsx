@@ -2,16 +2,24 @@ import { Link, useLocation } from "react-router-dom"
 function Navbar(){
      const path=useLocation().pathname;
      console.log(path)
+         const location=useLocation()
+
 return(
-  <nav className=" flex flex-col items-center justify-between w-full px-8 py-4 z-50 absolute mt-6">
-    <ul className="flex self-end items-center space-x-8 text-gray-700 font-medium mb-4 pr-10 gap-3">
-        <li className={`flex justify-center items-center py-3 px-4  rounded-4xl  ${path== '/'? "bg-black text-white" : "bg-white" }`}><h1>Home</h1></li>
-         <li className={`flex justify-center items-center py-3 px-4  rounded-4xl  ${path== '/dashboard'? "bg-black text-white" : "bg-white" }`}><h1>Dashboard</h1></li>
-         <li className={`flex justify-center items-center py-3 px-4  rounded-4xl  ${path== '/aboutus'? "bg-black text-white" : "bg-white" }`}><h1>About us</h1></li>
-         <li className={`flex justify-center items-center py-3 px-4  rounded-4xl  ${path== '/features'? "bg-black text-white" : "bg-white" }`}><h1>Features</h1></li>
-          <li className={`flex justify-center items-center py-3 px-4  rounded-4xl  ${path== '/login'? "bg-black text-white" : "bg-white" }`}><h1>Login</h1></li>
+  <div>
+  {path!="/dashboard"&& <div className="flex justify-center items-center h-[90px] w-full  z-20 fixed  ">
+   <h1 className="font-bold text-lg text-blue-500 bbh-sans-hegarty-regular  justify-self-start italic ml-8 ">CypherKeep</h1>
+  <nav className=" flex  items-center justify-center h-[90px]  w-full ">
+   
+    <ul className="flex   gap-16 mr-40 ">
+ <Link to="/">      <li className={`flex justify-center items-center    ${path== '/'? "text-black" : "" }`}><h1>Home</h1></li></Link>
+<Link to="/dashboard">      <li className={`flex justify-center items-center    ${path== '/dashboard'? "text-black" : "" }`}><h1>Dashboard</h1></li></Link>
+  <Link to="/aboutus">       <li className={`flex justify-center items-center    ${path== '/aboutus'? "" : "" }`}><h1>About us</h1></li></Link>
+   <Link to="/features">      <li className={`flex justify-center items-center   ${path== '/features'? "" : "" }`}><h1>Features</h1></li></Link>
+   <Link to="/login" state={{background:location}}>       <li className={`flex justify-center items-center    ${path== '/login'? "" : "" }`}><h1>Login</h1></li></Link>
     </ul>
   </nav>
+  </div>}
+  </div>
 )
 }
 export default Navbar
