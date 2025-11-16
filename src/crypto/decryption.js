@@ -1,10 +1,6 @@
 import { base64ToAb } from "../utils/base64";
 import { getRsaPrivateKey } from "./keymanager";
 
-/**
- * Attempt to detect mime type by inspecting first bytes of ArrayBuffer.
- * Returns a string mime or default "application/octet-stream"
- */
 function detectMime(buffer) {
   const bytes = new Uint8Array(buffer);
  
